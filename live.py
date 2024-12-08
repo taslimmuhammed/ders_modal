@@ -16,22 +16,19 @@ ADDRESS_TO_MONITOR = "ADDRESS_TO_MONITOR"  # Replace with address to monitor
 # Load AI model
 model, scalers = get_modal("saved_models_v7")
 
-# Contract ABI for the ImplementAiPause function
-CONTRACT_ABI = [
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_contractId",
-                "type": "uint256"
-            }
-        ],
-        "name": "ImplementAiPause",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    }
-]
+# Minimal ABI for just the ImplementAiPause function
+CONTRACT_ABI = [{
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_contractId",
+        "type": "uint256"
+    }],
+    "name": "ImplementAiPause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "type": "function"
+}]
 
 contract = w3.eth.contract(address=CONTRACT_ADDRESS, abi=CONTRACT_ABI)
 account = Account.from_key(PRIVATE_KEY)
